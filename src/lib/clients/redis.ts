@@ -2,18 +2,18 @@ import "~dotenv";
 import { connect } from "~redis/mod.ts";
 
 const env = Deno.env.toObject();
-const { REDIS_HOST, REDIS_PORT, REDIS_PASSWORD } = env;
+const { REDISHOST, REDISPORT, REDISPASSWORD } = env;
 
 /** Check environment for required variables. */
 if (
-  REDIS_HOST === undefined ||
-  REDIS_PORT === undefined ||
-  REDIS_PASSWORD === undefined
+  REDISHOST === undefined ||
+  REDISPORT === undefined ||
+  REDISPASSWORD === undefined
 ) {
   const attemptedEnv = {
-    REDIS_HOST,
-    REDIS_PORT,
-    REDIS_PASSWORD,
+    REDISHOST,
+    REDISPORT,
+    REDISPASSWORD,
   };
   console.log(attemptedEnv);
   throw new Error(`Environment Variables are not properly configured.`, {
@@ -25,9 +25,9 @@ console.log("Connecting to Redis Server...");
 
 const redis = await connect(
   {
-    hostname: REDIS_HOST,
-    port: REDIS_PORT,
-    password: REDIS_PASSWORD,
+    hostname: REDISHOST,
+    port: REDISPORT,
+    password: REDISPASSWORD,
   },
 );
 
