@@ -1,5 +1,5 @@
 import "dotenv";
-import { connect } from "redis/mod.ts";
+import { redisConnect } from "deps";
 
 const env = Deno.env.toObject();
 const { REDIS_HOST, REDIS_PORT, REDIS_PASSWORD } = env;
@@ -23,7 +23,7 @@ if (
 
 console.log("Connecting to Redis Server...");
 
-const redis = await connect(
+const redis = await redisConnect(
   {
     hostname: REDIS_HOST,
     port: REDIS_PORT,

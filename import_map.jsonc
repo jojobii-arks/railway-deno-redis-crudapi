@@ -1,6 +1,6 @@
 {
   "imports": {
-    "redis/": "https://deno.land/x/redis@v0.28.0/",
+    "deps": "./deps.ts",
     "dotenv": "https://deno.land/std@0.170.0/dotenv/load.ts"
   }
 }
